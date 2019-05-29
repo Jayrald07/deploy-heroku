@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.jumbotron:not(#announcement-panel) {
+			margin-bottom:5px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="announcement-panel" class="jumbotron jumbotron-container bg-dark text-white text-center">
+
+				</div>
+				<div id="previous-announcement" class="col-md-8 offset-md-2">
+				</div>					
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var socket = io();
+
+			function newAnnouncement(n,p) {
+				if (p.children().length > 0) {
+					let oldAnnouncement = p.children()[0].textContent;
+					$('#previous-announcement')
+					.prepend($('<div class="jumbotron-container jumbotron" style="padding: 20px 40px">').append($('<h5>')
+					.text(oldAnnouncement))
+					);
+					p.text('')
+				}
+				p.append($("<h3>").text(n));
+			}
+
+			socket.on('broadcastMessage',function(message) {
+				newAnnouncement(message,$('#announcement-panel'))
+			})
+		})
+	</script>
+</body>
+</html>
