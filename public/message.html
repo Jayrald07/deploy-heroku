@@ -42,7 +42,13 @@
 					p.text('')
 				}
 				p.append($("<h3>").text(n));
-				alertSound.play();
+				alertSound.play()
+				.then(data => {
+					console.log('Alerted!');
+				})
+				.catch(err => {
+					console.log('Something Happened!');
+				})
 			}
 
 			socket.on('broadcastMessage',function(message) {
