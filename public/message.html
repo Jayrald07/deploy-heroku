@@ -24,7 +24,7 @@
 			</div>
 		</div>
 	</div>
-	<audio id="alert">
+	<audio id="alertSound">
 		<source src="alert.wav" type="audio/wav">
 	</audio>
 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
@@ -42,7 +42,7 @@
 					p.text('')
 				}
 				p.append($("<h3>").text(n));
-				alert.play();
+				alertSound.play();
 			}
 
 			socket.on('broadcastMessage',function(message) {
