@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Node JS is Here!</title>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		#front-text {
+			transition: 600ms;
+		}
+	</style>
 </head>
 <body>
 
-	<a href="about.html">About</a>
-	<h1>Node JS is Lit!</h1>;
-
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a href="#" class="navbar-brand">Jayrald</a>
+		<button class="navbar-toggler" data-target='#menu' data-toggle="collapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="navbar-collapse collapse" id="menu">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a href="#" class="nav-link">Home</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div style="align-items: center;display: flex;justify-content: center;position: fixed;height: 80%;width: 100%">
+		<h2 id="front-text" style="font-size: 40pt;transform: scale(0);" align="center">IT'S ME, JAYRALD!</h2>
+	</div>
+<script type="text/javascript">
+	$(function() {
+		$('#front-text').css('transform','scale(1)');
+		
+	})
+</script>
 </body>
 </html>
